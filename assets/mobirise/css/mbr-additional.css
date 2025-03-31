@@ -763,7 +763,7 @@ a {
 .cid-uGz38LDxbh {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #242629;
+  background-image: url("../../../assets/images/barberry-8612696-1920.jpg-1920x1280.jpg");
   overflow: hidden;
 }
 .cid-unprgzSoxS {
@@ -887,13 +887,13 @@ a {
 .cid-uGz38LDxbh {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #242629;
+  background-image: url("../../../assets/images/barberry-8612696-1920.jpg-1920x1280.jpg");
   overflow: hidden;
 }
 .cid-uGyUvQQnF6 {
-  padding-top: 7rem;
+  padding-top: 5rem;
   padding-bottom: 10rem;
-  background-color: #242629;
+  background-image: url("../../../assets/images/barberry-8612696-1920.jpg-1920x1280.jpg");
 }
 .cid-uGyUvQQnF6 .content-wrapper {
   background: #2b2e32;
@@ -941,16 +941,17 @@ a {
   background-color: #2b2e32;
 }
 .cid-uGyUvR9Mbv {
-  padding-top: 6rem;
-  padding-bottom: 5rem;
-  background-color: #242629;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-image: url("../../../assets/images/backdrop-874452-1920.jpg-1920x1080.jpg");
+}
+.cid-uGyUvR9Mbv .mbr-overlay {
+  background: #242629;
+  opacity: 0.9;
 }
 .cid-uGyUvR9Mbv img,
 .cid-uGyUvR9Mbv .item-img {
   width: 100%;
-  height: 100%;
-  height: 200px;
-  object-fit: cover;
 }
 .cid-uGyUvR9Mbv .item:focus,
 .cid-uGyUvR9Mbv span:focus {
@@ -992,39 +993,124 @@ a {
 .cid-uGyUvR9Mbv .item-title {
   color: #fafafa;
 }
-.cid-uGyUvRIB9B {
+.cid-uH0kcARb7D {
   padding-top: 0rem;
-  padding-bottom: 0rem;
-  background-color: #242629;
+  padding-bottom: 1rem;
+  background-color: #2b2e32;
 }
-.cid-uGyUvRIB9B ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 2.5rem;
+.cid-uH0i1FznN8 {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  background-image: url("../../../assets/images/barberry-8612696-1920.jpg-1920x1280.jpg");
 }
-.cid-uGyUvRIB9B li {
-  position: relative;
-  margin-bottom: 1rem;
+.cid-uH0i1FznN8 .mbr-fallback-image.disabled {
+  display: none;
 }
-.cid-uGyUvRIB9B ul li::before {
+.cid-uH0i1FznN8 .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: -1.6rem;
-  content: "\2022";
-  color: #00ceaa;
-  font-weight: bold;
-  font-size: 2rem;
-  width: 1.6rem;
+  top: 0;
 }
-.cid-uGyUvRIB9B .list {
+.cid-uH0i1FznN8 .timeline-element {
+  position: relative;
+}
+.cid-uH0i1FznN8 .image-wrapper img {
+  width: 100%;
+  object-fit: cover;
+}
+.cid-uH0i1FznN8 .iconBackground {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #00ceaa;
+  top: 30px;
+  margin-left: -9px;
+  padding: 0;
+}
+@media (max-width: 767px) {
+  .cid-uH0i1FznN8 .iconBackground {
+    left: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .cid-uH0i1FznN8 .iconBackground {
+    left: 50%;
+  }
+}
+.cid-uH0i1FznN8 .row {
+  flex-direction: row-reverse;
+}
+.cid-uH0i1FznN8 .row:after {
+  content: "";
+  position: absolute;
+  background-color: #00ceaa;
+  width: 2px;
+  top: 50px;
+  height: calc(100% - 10px);
+}
+@media (max-width: 767px) {
+  .cid-uH0i1FznN8 .row:after {
+    left: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .cid-uH0i1FznN8 .row:after {
+    left: 50%;
+  }
+}
+.cid-uH0i1FznN8 .row:nth-child(even) .mbr-timeline-date {
+  text-align: right;
+}
+@media (max-width: 767px) {
+  .cid-uH0i1FznN8 .row:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 767px) {
+  .cid-uH0i1FznN8 .timeline-date-wrapper,
+  .cid-uH0i1FznN8 .timeline-text-wrapper {
+    padding: 0rem;
+    padding-left: 2rem;
+  }
+  .cid-uH0i1FznN8 .mbr-timeline-date {
+    text-align: left !important;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .cid-uH0i1FznN8 .timeline-date-wrapper,
+  .cid-uH0i1FznN8 .timeline-text-wrapper {
+    padding: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .cid-uH0i1FznN8 .timeline-date-wrapper,
+  .cid-uH0i1FznN8 .timeline-text-wrapper {
+    padding: 2rem;
+  }
+}
+.cid-uH0i1FznN8 .mbr-timeline-title {
   color: #fafafa;
-  text-align: left;
 }
-.cid-uGyUvRIB9B H3 {
-  color: #00ceaa;
+.cid-uH0i1FznN8 .mbr-text {
+  color: #fafafa;
+}
+.cid-uH0i1FznN8 .mbr-timeline-date {
+  color: #fafafa;
+}
+.cid-uH0i1FznN8 .mbr-section-title {
+  color: #fafafa;
+}
+.cid-uH0i1FznN8 .mbr-section-subtitle {
+  color: #fafafa;
 }
 .cid-uGz38LDxbh {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #242629;
+  background-image: url("../../../assets/images/barberry-8612696-1920.jpg-1920x1280.jpg");
   overflow: hidden;
 }
