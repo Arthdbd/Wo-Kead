@@ -58,10 +58,20 @@
 <body>
     <div class="message">
         <span class="oops">УПС..</span>
-        <span class="main-text">Возможно, ваши скрины еще не загрузились. Скопируйте ссылку и немного подождите, мы стараемся &lt;3</span>
+        <span class="main-text">Возможно, ваши фото еще не прогрузились. Вы можете скопируйте и прийти позже или немного подождите, мы стараемся &lt;3</span>
         <div class="credit-container">
             <span class="credit">Farmila by Nikolskiy</span>
         </div>
     </div>
+    <script>
+        let cycleCount = 0;
+        const credit = document.querySelector('.credit');
+        credit.addEventListener('animationiteration', () => {
+            cycleCount++;
+            if (cycleCount >= 2) {
+                location.reload();
+            }
+        });
+    </script>
 </body>
 </html>
