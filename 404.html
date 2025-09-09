@@ -31,10 +31,13 @@
             display: block;
             margin-bottom: 10px;
         }
+        .main-text {
+            display: block;
+            margin-bottom: 10px;
+        }
         .credit-container {
             font-size: 14px;
             color: white;
-            margin-top: 20px;
             display: inline-block;
             width: auto;
         }
@@ -47,19 +50,17 @@
         }
         @keyframes revealText {
             0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 100%; }
+            80% { width: 100%; }
+            100% { width: 0; }
         }
     </style>
 </head>
 <body>
     <div class="message">
         <span class="oops">УПС..</span>
-        Возможно, ваши скрины еще не загрузились. 
-      Скопируйте ссылку и немного подождите, мы стараемся &lt;3
+        <span class="main-text">Возможно, ваши скрины еще не загрузились. Скопируйте ссылку и немного подождите, мы стараемся &lt;3</span>
         <div class="credit-container">
-            <span class="credit">
-              Farmila by Nikolskiy</span>
+            <span class="credit">Farmila by Nikolskiy</span>
         </div>
     </div>
 </body>
