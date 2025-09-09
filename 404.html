@@ -1,1 +1,66 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://arthdbd.github.io/Wo-Kead/Farmila/Gallery_back.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        .message {
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            max-width: 600px;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            line-height: 1.5;
+        }
+        .oops {
+            font-size: 48px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .credit-container {
+            font-size: 14px;
+            color: white;
+            margin-top: 20px;
+            display: inline-block;
+            width: auto;
+        }
+        .credit {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: revealText 3s ease-in-out infinite;
+        }
+        @keyframes revealText {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <span class="oops">УПС..</span>
+        Возможно, ваши скрины еще не загрузились. 
+      Скопируйте ссылку и немного подождите, мы стараемся &lt;3
+        <div class="credit-container">
+            <span class="credit">
+              Farmila by Nikolskiy</span>
+        </div>
+    </div>
+</body>
+</html>
