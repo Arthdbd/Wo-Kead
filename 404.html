@@ -19,7 +19,7 @@
         }
         .game-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-top: 10px;
         }
         .game-instructions {
             color: white;
@@ -35,7 +35,7 @@
         }
         canvas {
             background: #1f1f1f;
-            border: 2px solid #25262a;
+            border: 2px solid #ffffff;
             border-radius: 10px;
         }
         .message {
@@ -78,17 +78,17 @@
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <div class="game-instructions">Управляйте WASD или стрелками.</div>
-        <canvas id="snakeCanvas" width="200" height="200"></canvas>
-        <div class="game-score">Счёт: <span id="score">0</span></div>
-    </div>
     <div class="message">
         <span class="oops">УПС... 404</span>
         <span class="main-text">Как бы ни старались, ничего не нашли...<br>Если эта ссылка на фото, возможно, они ещё не прогрузились.<br>Можете остаться и подождать — мы стараемся &lt;3</span>
         <div class="credit-container">
             <span class="credit">Farmila by Nikolskiy</span>
         </div>
+    </div>
+    <div class="game-container">
+        <div class="game-instructions">Управляйте WASD или стрелками</div>
+        <canvas id="snakeCanvas" width="200" height="200"></canvas>
+        <div class="game-score">Счёт: <span id="score">0</span></div>
     </div>
     <script>
         let cycleCount = 0;
@@ -103,7 +103,7 @@
         // Snake game
         const canvas = document.getElementById('snakeCanvas');
         const ctx = canvas.getContext('2d');
-        const gridSize = 10; // Adjusted for smaller canvas
+        const gridSize = 10;
         const tileCount = canvas.width / gridSize;
 
         // Initialize or restore game state
@@ -127,9 +127,15 @@
                 return;
             }
 
-            // Draw snake
-            snake.forEach(segment => {
-                ctx.fillStyle = '#3e3e43';
+            // Draw snake with gradient
+            snake.forEach((segment, index) => {
+                const t = index / (snake.length - 1); // Position along snake (0 = head, 1 = tail)
+                const headColor = { r: 62, g: 62, b: 67 }; // #3e3e43
+                const tailColor = { r: 110, g: 110, b: 115 }; // #6e6e73
+                const r = Math.round(headColor.r + (tailColor.r - headColor.r) * t);
+                const g = Math.round(headColor.g + (tailColor.g - headColor.g) * t);
+                const b = Math.round(headColor.b + (tailColor.b - headColor.b) * t);
+                ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
                 ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
             });
 
@@ -189,7 +195,8 @@
 
         document.addEventListener('keydown', e => {
             if (isCollided) return; // Prevent movement after collision
-            switch (e.key.toLowerCase()) {
+            const key = e.key.toLowerCase();
+            switch (key) {
                 case 'w':
                 case 'arrowup':
                     if (dy === 0) { dx = 0; dy = -1; }
