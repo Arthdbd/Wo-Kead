@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Этого пока или уже нет</title>
+    <title>404 - Page Not Found</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -37,10 +37,12 @@
         .main-text {
             display: block;
             margin-bottom: 10px;
-            line-height: 1.6;
-        }
-        .main-text span {
-            display: block; /* разбиваем на 2 строки */
+            font-size: 28px;
+            line-height: 1.5;
+            max-width: 520px; /* ширина, чтобы текст занял 2 строки */
+            margin-left: auto;
+            margin-right: auto;
+            word-wrap: break-word;
         }
         .extra-text {
             display: block;
@@ -75,7 +77,7 @@
             border-radius: 50%;
             cursor: pointer;
             z-index: 3;
-            opacity: 0.8; /* чуть прозрачнее */
+            opacity: 0.8; /* прозрачность */
         }
         #score {
             position: fixed;
@@ -93,10 +95,7 @@
 <body>
     <div class="message">
         <span class="oops">УПС... 404</span>
-        <span class="main-text">
-            <span>Этого пока или уже нет.</span>
-            <span>Если это ссылка на фото, возможно, ваши фотографии ещё не прогрузились, можете подождать — мы стараемся &lt;3</span>
-        </span>
+        <span class="main-text">Этого пока или уже нет. Если это ссылка на фото, возможно, ваши фотографии ещё не прогрузились.</span>
         <span class="extra-text">Пока что можешь поискать шарик, он здесь… где-то на странице&#41;</span>
         <div class="credit-container">
             <span class="credit">Farmila by Nikolskiy</span>
