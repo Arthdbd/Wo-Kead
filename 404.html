@@ -213,24 +213,32 @@
             let newDy = dy;
             switch (e.key.toLowerCase()) {
                 case 'w':
+                case 'ц':
+                case 'arrowup':
                     if (lastDy !== 1) { // Prevent moving down if going up
                         newDx = 0;
                         newDy = -1;
                     }
                     break;
                 case 's':
+                case 'ы':
+                case 'arrowdown':
                     if (lastDy !== -1) { // Prevent moving up if going down
                         newDx = 0;
                         newDy = 1;
                     }
                     break;
                 case 'a':
+                case 'ф':
+                case 'arrowleft':
                     if (lastDx !== 1) { // Prevent moving right if going left
                         newDx = -1;
                         newDy = 0;
                     }
                     break;
                 case 'd':
+                case 'в':
+                case 'arrowright':
                     if (lastDx !== -1) { // Prevent moving left if going right
                         newDx = 1;
                         newDy = 0;
