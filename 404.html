@@ -19,7 +19,7 @@
         }
         .game-container {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 10px; /* Reduced from 20px */
         }
         .game-instructions {
             color: white;
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="game-container">
-        <div class="game-instructions">Управляйте WASD или стрелками</div>
+        <div class="game-instructions">Управляйте змейкой клавишами WASD или стрелками. Собирайте зелёные шарики!</div>
         <canvas id="snakeCanvas" width="200" height="200"></canvas>
         <div class="game-score">Счёт: <span id="score">0</span></div>
     </div>
@@ -115,6 +115,12 @@
         let isCollided = JSON.parse(sessionStorage.getItem('isCollided')) || false;
         let gameSpeed = 100;
 
+        // Reset isCollided if snake is in initial state to prevent stuck game
+        if (snake.length === 1 && snake[0].x === 10 && snake[0].y === 10 && dx === 0 && dy === 0) {
+            isCollided = false;
+            sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
+        }
+
         document.getElementById('score').textContent = score;
 
         function drawGame() {
@@ -124,6 +130,19 @@
 
             // Stop movement if collided
             if (isCollided) {
+                // Draw snake and food even when stopped
+                snake.forEach((segment, index) => {
+                    const t = index / (snake.length - 1);
+                    const headColor = { r: 62, g: 62, b: 67 }; // #3e3e43
+                    const tailColor = { r: 110, g: 110, b: 115 }; // #6e6e73
+                    const r = Math.round(headColor.r + (tailColor.r - headColor.r) * t);
+                    const g = Math.round(headColor.g + (tailColor.g - headColor.g) * t);
+                    const b = Math.round(headColor.b + (tailColor.b - headColor.b) * t);
+                    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+                    ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+                });
+                ctx.fillStyle = '#00af92';
+                ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
                 return;
             }
 
