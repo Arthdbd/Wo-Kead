@@ -38,6 +38,11 @@
             display: block;
             margin-bottom: 10px;
         }
+        .extra-text {
+            display: block;
+            margin-top: 10px;
+            font-size: 22px;
+        }
         .credit-container {
             font-size: 14px;
             color: white;
@@ -60,9 +65,9 @@
         /* Мини-игра: шарик */
         #ball {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background: red;
+            width: 30px; /* меньше */
+            height: 30px; /* меньше */
+            background: white; /* белый шарик */
             border-radius: 50%;
             cursor: pointer;
             z-index: 3;
@@ -70,9 +75,10 @@
         #score {
             position: fixed;
             top: 20px;
-            right: 20px;
-            font-size: 24px;
-            color: yellow;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px; /* меньше */
+            color: white; /* белый */
             font-weight: bold;
             text-shadow: 1px 1px 3px black;
             z-index: 4;
@@ -83,7 +89,7 @@
     <div class="message">
         <span class="oops">УПС... 404</span>
         <span class="main-text">Этого пока или уже нет. Если это ссылка на фото, возможно, ваши фотографии ещё не прогрузились. Можете остаться и подождать — мы стараемся &lt;3</span>
-        <span class="game">Пока что можешь поискать шарик, он здесь… где-то на странице 😉</span>
+        <span class="extra-text">Пока что можешь поискать шарик, он здесь… где-то на странице)</span>
         <div class="credit-container">
             <span class="credit">Farmila by Nikolskiy</span>
         </div>
