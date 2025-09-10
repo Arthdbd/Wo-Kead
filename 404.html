@@ -15,6 +15,7 @@
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://arthdbd.github.io/Wo-Kead/Farmila/Gallery_back.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Roboto', Arial, sans-serif;
+            overflow: hidden;
         }
         .message {
             color: white;
@@ -24,6 +25,8 @@
             padding: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             line-height: 1.5;
+            position: relative;
+            z-index: 2;
         }
         .oops {
             font-size: 48px;
@@ -53,17 +56,44 @@
             80% { width: 100%; }
             100% { width: 0; }
         }
+
+        /* Мини-игра: шарик */
+        #ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 3;
+        }
+        #score {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: yellow;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px black;
+            z-index: 4;
+        }
     </style>
 </head>
 <body>
     <div class="message">
         <span class="oops">УПС... 404</span>
         <span class="main-text">Этого пока или уже нет. Если это ссылка на фото, возможно, ваши фотографии ещё не прогрузились. Можете остаться и подождать — мы стараемся &lt;3</span>
+        <span class="game">Пока что можешь поискать шарик, он здесь… где-то на странице)</span>
         <div class="credit-container">
             <span class="credit">Farmila by Nikolskiy</span>
         </div>
     </div>
+
+    <div id="score">Счёт: 0</div>
+    <div id="ball"></div>
+
     <script>
+        // Анимация и перезагрузка credit
         let cycleCount = 0;
         const credit = document.querySelector('.credit');
         credit.addEventListener('animationiteration', () => {
@@ -72,6 +102,38 @@
                 location.reload();
             }
         });
+
+        // Мини-игра: шарик
+        const ball = document.getElementById('ball');
+        const scoreDisplay = document.getElementById('score');
+
+        // Получаем текущий счет из localStorage или 0
+        let score = parseInt(localStorage.getItem('ballScore')) || 0;
+        scoreDisplay.textContent = `Счёт: ${score}`;
+
+        // Функция случайного положения шарика
+        function moveBall() {
+            const maxX = window.innerWidth - ball.offsetWidth;
+            const maxY = window.innerHeight - ball.offsetHeight;
+            const x = Math.floor(Math.random() * maxX);
+            const y = Math.floor(Math.random() * maxY);
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+        }
+
+        // При клике на шарик увеличиваем счет и перемещаем шарик
+        ball.addEventListener('click', () => {
+            score++;
+            localStorage.setItem('ballScore', score); // сохраняем
+            scoreDisplay.textContent = `Счёт: ${score}`;
+            moveBall();
+        });
+
+        // Инициализация положения шарика
+        moveBall();
+
+        // Перемещаем шарик при ресайзе, чтобы не уйти за экран
+        window.addEventListener('resize', moveBall);
     </script>
 </body>
 </html>
