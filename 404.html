@@ -20,6 +20,7 @@
         .game-container {
             text-align: center;
             margin-bottom: 10px;
+            position: relative;
         }
         .game-instructions {
             color: white;
@@ -71,6 +72,26 @@
             width: 0;
             animation: revealText 3s ease-in-out infinite;
         }
+        .reset-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #00af92;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            display: none;
+            z-index: 10;
+            white-space: nowrap; /* Предотвращает перенос текста */
+        }
+        .reset-button:hover {
+            background-color: #008f76;
+        }
         @keyframes revealText {
             0% { width: 0; }
             80% { width: 100%; }
@@ -82,6 +103,7 @@
     <div class="game-container">
         <div class="game-instructions">Счёт: <span id="score">0</span></div>
         <canvas id="snakeCanvas" width="200" height="200"></canvas>
+        <button id="resetButton" class="reset-button" onclick="resetGame()">Заново</button>
     </div>
     <div class="message">
         <span class="oops">УПС... 404</span>
@@ -100,14 +122,10 @@
             }
         });
 
-        // Clear sessionStorage when the user leaves the page
-        window.addEventListener('beforeunload', () => {
-            sessionStorage.clear();
-        });
-
         // Snake game
         const canvas = document.getElementById('snakeCanvas');
         const ctx = canvas.getContext('2d');
+        const resetButton = document.getElementById('resetButton');
         const gridSize = 10;
         const tileCount = canvas.width / gridSize;
 
@@ -120,7 +138,41 @@
         let isCollided = JSON.parse(sessionStorage.getItem('isCollided')) || false;
         let gameSpeed = 100;
 
+        // Show reset button if game is over
+        if (isCollided) {
+            resetButton.style.display = 'block';
+        }
+
         document.getElementById('score').textContent = score;
+
+        function resetGame() {
+            // Reset all game state
+            snake = [{ x: 10, y: 10 }];
+            food = { x: 15, y: 15 };
+            dx = 0;
+            dy = 0;
+            score = 0;
+            isCollided = false;
+            lastDx = 0;
+            lastDy = 0;
+
+            // Clear sessionStorage
+            sessionStorage.clear();
+
+            // Update score display
+            document.getElementById('score').textContent = score;
+
+            // Save initial state
+            sessionStorage.setItem('snake', JSON.stringify(snake));
+            sessionStorage.setItem('food', JSON.stringify(food));
+            sessionStorage.setItem('dx', dx);
+            sessionStorage.setItem('dy', dy);
+            sessionStorage.setItem('snakeScore', score);
+            sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
+
+            // Hide reset button
+            resetButton.style.display = 'none';
+        }
 
         function drawGame() {
             // Clear canvas
@@ -156,6 +208,7 @@
 
             // Stop movement if collided
             if (isCollided) {
+                resetButton.style.display = 'block';
                 return;
             }
 
@@ -173,6 +226,7 @@
                 if (head.x === snake[i].x && head.y === snake[i].y) {
                     isCollided = true;
                     sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
+                    resetButton.style.display = 'block';
                     return;
                 }
             }
