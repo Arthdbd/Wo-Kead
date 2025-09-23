@@ -6,5 +6,13 @@
         "email": "amenala789@gmail.com",
         "password": "d70ec78a17e3e5c91e45d862343339ff856be2ce2d8600f540d6982dfdc6039a",
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Nik.jpg"
+    },
+    "Kead_Top": {
+        "position": "\u041a\u0430\u043f\u0438\u0442\u0430\u043d (7)",
+        "department": "\u041e\u0421\u0420",
+        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
+        "email": "kead@top.top",
+        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Top.jpg"
     }
 }
