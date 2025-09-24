@@ -1,1 +1,14 @@
-{}
+{
+    "Ki_ki": {
+        "position": "\u041a\u0430\u043f\u0438\u0442\u0430\u043d (7)",
+        "department": "SSS",
+        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
+        "email": "ki@ki.ki",
+        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "user_login": "Ki_ki",
+        "last_name": "\u041a\u0438",
+        "first_name": "\u041a\u0438",
+        "patronymic": "\u041a\u0438",
+        "user_avatar": null
+    }
+}
