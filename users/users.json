@@ -10,5 +10,17 @@
         "first_name": "\u0410\u0440\u0442\u0435\u043c",
         "patronymic": "\u0412\u0438\u0442\u0430\u043b\u044c\u0435\u0432\u0438\u0447",
         "user_avatar": null
+    },
+    "Ni_Ko": {
+        "position": "\u041a\u0430\u043f\u0438\u0442\u0430\u043d (7)",
+        "department": "SSS",
+        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
+        "email": "niko@gg.com",
+        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "user_login": "Niko",
+        "last_name": "\u041d\u0438\u043a\u043e",
+        "first_name": "\u041d\u0438\u043a\u043e",
+        "patronymic": "\u041d\u0438\u043a\u043e\u0432",
+        "user_avatar": null
     }
 }
