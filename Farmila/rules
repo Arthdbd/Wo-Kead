@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Правила использования</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("https://arthdbd.github.io/Wo-Kead/Farmila/Gallery_back.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #f8fff5;
+      line-height: 1.6;
+    }
+
+    .overlay {
+      background: rgba(0, 40, 0, 0.7);
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(20, 60, 20, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 255, 128, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #b6ffb3;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #adff99;
+      margin-top: 25px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: "✔ ";
+      color: #98ff8a;
+    }
+
+    .important {
+      color: #ffffff;
+      background: rgba(0, 100, 0, 0.6);
+      padding: 10px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #c9ffd2;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>Правила использования приложения и аккаунтов</h1>
+
+      <div class="important">
+        За нарушение данных правил аккаунт может быть безвозвратно удалён как с уведомлением на контактную почту, так и в отдельных случаях — без предупреждения.
+      </div>
+
+      <h2>1. Назначение хостинга</h2>
+      <ul>
+        <li>Хостинг предназначен исключительно для загрузки скриншотов в качестве доказательств в отчётах.</li>
+        <li>Использование ресурса для иных целей запрещено.</li>
+      </ul>
+
+      <h2>2. Аккаунты</h2>
+      <ul>
+        <li>Каждый пользователь может иметь не более трёх (3) аккаунтов.</li>
+        <li>По возможности администрация будет уведомлять о нарушениях на контактную почту, указанную при регистрации.</li>
+        <li>За серьёзные нарушения аккаунт может быть удалён без восстановления.</li>
+      </ul>
+
+      <h2>3. Запрещённые никнеймы</h2>
+      <ul>
+        <li>Запрещено создавать аккаунты с именами, никами или любыми схожими вариациями создателя проекта Farmila — <b>Kead (Artem_Nikolskiy)</b>.</li>
+        <li>Запрещено использовать никнеймы создателей проекта <b>MTA Province</b>, а также никнеймы администраторов и разработчиков других серверов.</li>
+        <li>Запрещено использовать следующие никнеймы: <i>Emily_Quincy, Maria_Alekseeva, Vladislav_Kiselev, Claus_Nevskiy, Platon_Seven, Denis_Manafort, Alexey_Novak, Emily_Hale</i> и другие, занятые администрацией.</li>
+      </ul>
+
+      <h2>4. Технические ограничения</h2>
+      <ul>
+        <li>Запрещено засорять хостинг или предпринимать любые попытки дестабилизировать работу программы/хостинга.</li>
+        <li>Подобные действия ведут к безоговорочному удалению аккаунта без возможности восстановления.</li>
+      </ul>
+
+      <footer>
+        &copy; 2025 Farmila Project. Все права защищены.
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
