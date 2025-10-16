@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еженедельный Рапорт</title>
+    <!-- Иконка страницы -->
+    <link rel="icon" type="image/png" href="https://arthdbd.github.io/Wo-Kead/Ico-removebg-preview.png">
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Кастомный цвет для подписи Farmila
+                        'farmila-green': '#00af92', 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Установим шрифт Inter по умолчанию для лучшей эстетики */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://arthdbd.github.io/Wo-Kead/Farmila/Gallery_back.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            /* Центрируем содержимое body */
+            display: flex;
+            flex-direction: column; /* Позволяет располагать элементы вертикально */
+            justify-content: center;
+            align-items: center;
+            padding: 40px 10px; /* Отступ для мобильных устройств */
+        }
+        /* Слой затемнения */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.65); /* Уровень затемнения (65% черный) */
+            z-index: -1;
+        }
+        /* Стилизация контейнера отчета */
+        .report-content p {
+            /* Убедимся, что все параграфы внутри блока имеют отступ 0 и маргин 0, как в оригинале */
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        /* Стиль для текста "powered by" */
+        .farmila-text {
+            /* Используем Calibri, если доступен, иначе Inter */
+            font-family: 'Calibri', 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Информационные строки перед рапортом (УВЕЛИЧЕНЫ) -->
+    <div class="text-center mb-12 max-w-5xl w-full">
+        <!-- Увеличен размер шрифта с text-2xl до text-3xl -->
+        <h1 class="text-3xl font-extrabold text-white mb-1">Ваш отчет готов</h1>
+        <!-- Увеличен размер шрифта с text-base до text-lg -->
+        <p class="text-lg font-medium text-gray-300">Просто выделите и скопируйте текст в рамке ниже</p>
+    </div>
+
+    <!--
+        Контент рапорта.
+    -->
+    <div class="report-content max-w-5xl w-full rounded-xl" style="background-color:#17191f; padding: 10px;">
+        
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            <span><strong>Начальнику ГИБДД города Приволжска<br>
+            Генерал-майору инспекции</strong></span>
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            <span><strong>Миллеру Мистериусу Сергеевичу<br>
+            от&nbsp;<span style="color:#2980b9;">звание</span><span style="color:#ff6600;">&nbsp;</span>инспекции<br>
+            от&nbsp;<span style="color:#2980b9;">ФИО в род.падеже</span></strong></span>
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            &nbsp;
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:center;">
+            <span><strong>Рапорт о еженедельной работе сотрудника младшего состава</strong></span>
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            &nbsp;
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>Я,&nbsp;<span style="color:#2980b9;">ФИО</span>, служащий в звании&nbsp;<span style="color:#2980b9;">звание</span>&nbsp;инспекции на должности инспектор ОСР. Составляю рапорт о проделанной работе в течение недели за период&nbsp;<span style="color:#2980b9;">xx.xx.xxxx&nbsp;-&nbsp;xx.xx.xxxx.</span><span>&nbsp;</span>Подтверждаю, что ознакомлен с правилами о предоставлении неверной информации.</strong></span><br>
+            &nbsp;
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>К рапорту прилагаю доказательства своей работы:</strong></span><br>
+            &nbsp;
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>1. *вид работы* [количество],<span style="color:#2980b9;">&nbsp;доказательства;</span></strong></span>
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>2. *вид работы* [количество],<span>&nbsp;</span><span style="color:#2980b9;">доказательства;</span></strong></span>
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>3. *вид работы* [количество],<span>&nbsp;</span><span style="color:#2980b9;">доказательства.</span></strong></span>
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>4. Общее количество баллов:<span>&nbsp;</span><span style="color:#2980b9;">*количество*.</span></strong></span><br>
+            &nbsp;
+        </p>
+
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            <span><strong>Дата:&nbsp;<span style="color:#2980b9;">хх.хх.2025</span><br>
+            Подпись:&nbsp;<span style="color:#2980b9;">Любой набор символов</span></strong></span>
+        </p>
+    </div>
+    <!-- Конец контента рапорта -->
+
+    <!-- Нижняя подпись (ЦВЕТ ИЗМЕНЕН, ОТСТУП УМЕНЬШЕН) -->
+    <!-- Изменен mt-12 на mt-6 -->
+    <div class="mt-4">
+        <!-- Используем заданный кастомный цвет farmila-green (#00af92) -->
+        <p class="farmila-text text-farmila-green font-bold">
+            powered by Farmila
+        </p>
+    </div>
+
+</body>
+</html>
