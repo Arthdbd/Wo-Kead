@@ -12,5 +12,17 @@
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Artem_Nikolskiy.jpg",
         "premium_imba": "wait",
         "sign": "\ud835\udcdd\ud835\udcd0\ud835\udce5\ud835\udcf2"
+    },
+    "Niko_Lik": {
+        "position": "\u041f\u0440\u0430\u043f\u043e\u0440\u0449\u0438\u043a (4)",
+        "department": "\u0438\u043d\u0441\u043f\u0435\u043a\u0442\u043e\u0440 \u041e\u0411",
+        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
+        "email": "amena@me.com",
+        "password": "d70ec78a17e3e5c91e45d862343339ff856be2ce2d8600f540d6982dfdc6039a",
+        "user_login": "Keadik",
+        "last_name": "\u041d\u0438\u043a\u043e\u043b\u044c\u0441\u043a\u0438\u0439",
+        "first_name": "\u041d\u0438\u043a\u043e",
+        "patronymic": "\u041c\u0438\u043d\u043e\u0432\u0438\u0447",
+        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Niko_Lik.jpg"
     }
 }
