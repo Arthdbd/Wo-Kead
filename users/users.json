@@ -13,56 +13,5 @@
         "premium_imba": "20-02-2026 18:39",
         "sign": "\ud835\udcdd\ud835\udcd0\ud835\udce5\ud835\udcf2"
     },
-    "Niko_Lik": {
-        "position": "\u041f\u0440\u0430\u043f\u043e\u0440\u0449\u0438\u043a (4)",
-        "department": "\u0438\u043d\u0441\u043f\u0435\u043a\u0442\u043e\u0440 \u041e\u0411",
-        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
-        "email": "amena@me.com",
-        "password": "d70ec78a17e3e5c91e45d862343339ff856be2ce2d8600f540d6982dfdc6039a",
-        "user_login": "Keadik",
-        "last_name": "\u041d\u0438\u043a\u043e\u043b\u044c\u0441\u043a\u0438\u0439",
-        "first_name": "\u041d\u0438\u043a\u043e",
-        "patronymic": "\u041c\u0438\u043d\u043e\u0432\u0438\u0447",
-        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Niko_Lik.jpg",
-        "premium_imba": "wait",
-        "sign": "\ud835\udcdd\ud835\udcd0\ud835\udce5\ud835\udcf2"
-    },
-    "kikik_jiij": {
-        "position": "\u041a\u0430\u043f\u0438\u0442\u0430\u043d (7)",
-        "department": "\u041e\u0421\u0411",
-        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
-        "email": "amenala789@gmail.com",
-        "password": "d70ec78a17e3e5c91e45d862343339ff856be2ce2d8600f540d6982dfdc6039a",
-        "user_login": "Kolok",
-        "last_name": "\u041d\u0438\u043a\u043e\u043b\u044c\u0441\u0438\u043a",
-        "first_name": "\u0410\u0440\u0442\u0435",
-        "patronymic": "\u0432\u044b\u0444\u0432\u0444\u0432\u044b\u0444\u0432",
-        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/kikik_jiij.jpg"
-    },
-    "Grisha_Koks": {
-        "position": "\u041a\u0430\u043f\u0438\u0442\u0430\u043d (7)",
-        "department": "\u041e\u0421\u0420",
-        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
-        "email": "kead@kead.lol",
-        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "user_login": "Lola",
-        "last_name": "\u041d\u0438\u043a\u043e\u043b\u044c\u0441\u043a\u0438\u0439",
-        "first_name": "\u0413\u0440\u0438\u0448\u0430",
-        "patronymic": "\u041a\u043e\u043a\u0441\u043e\u0432\u0438\u0447",
-        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Grisha_Koks.jpg",
-        "premium_imba": "wait"
-    },
-    "Tokaki_Kaki": {
-        "position": "\u0421\u0442.\u043b\u0435\u0439\u0442\u0435\u043d\u0430\u043d\u0442 (6)",
-        "department": "\u041e\u0421\u0420",
-        "city": "\u041f\u0440\u0438\u0432\u043e\u043b\u0436\u0441\u043a",
-        "email": "kead@kead.toc",
-        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
-        "user_login": "Laki",
-        "last_name": "\u041d\u0438\u043a\u043e\u043b\u044c\u0441\u043a\u0438\u0439",
-        "first_name": "\u041a\u0438\u0434",
-        "patronymic": "\u041b\u043e\u043f\u043e\u0432\u0438\u0447",
-        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Tokaki_Kaki.jpg",
-        "premium_imba": "wait"
-    }
+
 }
