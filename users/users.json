@@ -11,7 +11,12 @@
         "patronymic": "Витальевич",
         "sign": "𝓝𝓐𝓥𝓲",
         "premium_imba": "wait",
-        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Artem_Nikolski.jpg"
+        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Artem_Nikolski.jpg",
+        "telegram_id": 1331423242,
+        "role": "user",
+        "warnings": [],
+        "is_banned": false,
+        "two_factor_enabled": false
     },
     "Kead_Kead": {
         "position": "Капитан (7)",
@@ -25,6 +30,11 @@
         "patronymic": "Эксспрес",
         "sign": "𝓝𝓐𝓥𝓲",
         "premium_imba": "wait",
-        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Kead.jpg"
+        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Kead.jpg",
+        "telegram_id": null,
+        "role": "user",
+        "warnings": [],
+        "is_banned": false,
+        "two_factor_enabled": false
     }
 }
