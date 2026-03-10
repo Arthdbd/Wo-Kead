@@ -26,5 +26,25 @@
         "sign": "𝓝𝓐𝓥𝓲",
         "premium_imba": "wait",
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Kead.jpg"
+    },
+    "Artem_Nikolskiy": {
+        "position": "Курсант",
+        "department": "Не указано",
+        "city": "Не указан",
+        "email": "Artem_Nikolskiy@temp.com",
+        "password": "5a329cdb10079ae8c417ba9edf7a8c77e6dc790ada279a4154ac881220a19610",
+        "user_login": "Artem_Nikolskiy",
+        "last_name": "Artem",
+        "first_name": "Nikolskiy",
+        "patronymic": "",
+        "sign": "",
+        "premium_imba": "wait",
+        "telegram_id": "1331423242",
+        "registration_date": "11-03-2026 00:22",
+        "last_login": "11-03-2026 00:22",
+        "user_avatar": null,
+        "total_reports": 0,
+        "total_screenshots": 0,
+        "activity_level": "Низкая"
     }
 }
