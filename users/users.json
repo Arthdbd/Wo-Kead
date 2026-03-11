@@ -14,13 +14,7 @@
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Artem_Nikolski.jpg",
         "telegram_id": 1331423242,
         "role": "super_admin",
-        "warnings": [
-            {
-                "reason": "4.4",
-                "admin": "Artem_Nikolskiy",
-                "timestamp": "2026-03-11T20:27:10.806762+00:00"
-            }
-        ],
+        "warnings": [],
         "is_banned": false,
         "two_factor_enabled": false,
         "subscription_updated_by": "Artem_Nikolski",
