@@ -16,7 +16,9 @@
         "role": "super_admin",
         "warnings": [],
         "is_banned": false,
-        "two_factor_enabled": false
+        "two_factor_enabled": false,
+        "subscription_updated_by": "test_admin",
+        "subscription_updated_at": "2026-03-11T12:55:36.695364+00:00"
     },
     "Kead_Kead": {
         "position": "Капитан (7)",
