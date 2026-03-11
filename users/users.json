@@ -14,20 +14,9 @@
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Artem_Nikolski.jpg",
         "telegram_id": null,
         "role": "super_admin",
-        "warnings": [
-            {
-                "reason": "ПИ 4.2",
-                "admin": "Artem_Nikolski",
-                "timestamp": "2026-03-11T03:05:47.322896+00:00"
-            }
-        ],
-        "is_banned": true,
-        "two_factor_enabled": false,
-        "subscription_updated_by": "Artem_Nikolski",
-        "subscription_updated_at": "2026-03-11T03:06:08.443008+00:00",
-        "ban_reason": "ПИ 4.4",
-        "banned_by": "Artem_Nikolski",
-        "banned_at": "2026-03-11T03:08:24.512012+00:00"
+        "warnings": [],
+        "is_banned": false,
+        "two_factor_enabled": false
     },
     "Kead_Kead": {
         "position": "Капитан (7)",
