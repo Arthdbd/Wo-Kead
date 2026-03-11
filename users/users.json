@@ -22,7 +22,7 @@
             }
         ],
         "is_banned": false,
-        "two_factor_enabled": true,
+        "two_factor_enabled": false,
         "subscription_updated_by": "Artem_Nikolski",
         "subscription_updated_at": "2026-03-11T14:37:52.581464+00:00"
     },
