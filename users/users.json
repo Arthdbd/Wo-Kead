@@ -44,24 +44,5 @@
         "warnings": [],
         "is_banned": false,
         "two_factor_enabled": false
-    },
-    "test_user": {
-        "telegram_id": null,
-        "role": "user",
-        "warnings": [],
-        "is_banned": false,
-        "two_factor_enabled": false,
-        "position": "Тестировщик",
-        "department": "Тестирование",
-        "city": "Москва",
-        "email": "test@example.com",
-        "password": "ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae",
-        "user_login": "test_login",
-        "last_name": "Тестов",
-        "first_name": "Иван",
-        "patronymic": "Иванович",
-        "sign": "TT",
-        "premium_imba": "wait",
-        "user_avatar": ""
     }
 }
