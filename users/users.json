@@ -42,7 +42,10 @@
                 "timestamp": "2026-03-12T00:42:48.021374+00:00"
             }
         ],
-        "is_banned": false,
-        "two_factor_enabled": false
+        "is_banned": true,
+        "two_factor_enabled": false,
+        "ban_reason": "4.4",
+        "banned_by": "Artem_Nikolskiy",
+        "banned_at": "2026-03-12T00:44:01.732882+00:00"
     }
 }
