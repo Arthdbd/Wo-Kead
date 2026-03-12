@@ -35,7 +35,13 @@
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Kead.jpg",
         "telegram_id": 6347954053,
         "role": "user",
-        "warnings": [],
+        "warnings": [
+            {
+                "reason": "4.4",
+                "admin": "Artem_Nikolskiy",
+                "timestamp": "2026-03-12T00:56:18.445400+00:00"
+            }
+        ],
         "is_banned": false,
         "two_factor_enabled": false
     }
