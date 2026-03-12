@@ -40,6 +40,11 @@
                 "reason": "4.4",
                 "admin": "Artem_Nikolskiy",
                 "timestamp": "2026-03-12T00:56:18.445400+00:00"
+            },
+            {
+                "reason": "Тест 1",
+                "admin": "Artem_Nikolskiy",
+                "timestamp": "2026-03-12T00:57:04.551875+00:00"
             }
         ],
         "is_banned": false,
