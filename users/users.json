@@ -65,10 +65,13 @@
         "telegram_id": 6347954053,
         "role": "user",
         "warnings": [],
-        "is_banned": false,
+        "is_banned": true,
         "two_factor_enabled": false,
         "premium_imba": "31-12-2026 23:59",
         "subscription_updated_by": "Artem_Nikolskiy",
-        "subscription_updated_at": "2026-03-12T13:08:37.520722+00:00"
+        "subscription_updated_at": "2026-03-12T13:08:37.520722+00:00",
+        "ban_reason": "4.4",
+        "banned_by": "Artem_Nikolskiy",
+        "banned_at": "2026-03-12T13:10:30.120461+00:00"
     }
 }
