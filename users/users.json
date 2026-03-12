@@ -35,7 +35,13 @@
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Kead.jpg",
         "telegram_id": 6347954053,
         "role": "user",
-        "warnings": [],
+        "warnings": [
+            {
+                "reason": "3.2. Загруженные материалы должны соответствовать назначению хостинга – доказательная база для отчётов.",
+                "admin": "Artem_Nikolskiy",
+                "timestamp": "2026-03-12T11:25:39.258385+00:00"
+            }
+        ],
         "is_banned": false,
         "two_factor_enabled": false,
         "subscription_updated_by": "Artem_Nikolskiy",
