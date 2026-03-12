@@ -31,7 +31,7 @@
         "first_name": "Али",
         "patronymic": "Эксспрес",
         "sign": "𝓝𝓐𝓥𝓲",
-        "premium_imba": "wait",
+        "premium_imba": "13-03-2026 12:12",
         "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Kead.jpg",
         "telegram_id": null,
         "role": "user",
@@ -43,6 +43,8 @@
             }
         ],
         "is_banned": false,
-        "two_factor_enabled": false
+        "two_factor_enabled": false,
+        "subscription_updated_by": "Artem_Nikolskiy",
+        "subscription_updated_at": "2026-03-12T01:04:49.061223+00:00"
     }
 }
