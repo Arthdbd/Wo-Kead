@@ -42,12 +42,9 @@
                 "timestamp": "2026-03-12T11:25:39.258385+00:00"
             }
         ],
-        "is_banned": true,
+        "is_banned": false,
         "two_factor_enabled": true,
         "subscription_updated_by": "Artem_Nikolskiy",
-        "subscription_updated_at": "2026-03-12T01:06:16.310839+00:00",
-        "ban_reason": "4.4. В случае нарушений, связанных с мультиаккаунтами или передачей доступа, аккаунт может быть ограничен или удалён.",
-        "banned_by": "Artem_Nikolskiy",
-        "banned_at": "2026-03-12T11:52:37.919818+00:00"
+        "subscription_updated_at": "2026-03-12T01:06:16.310839+00:00"
     }
 }
