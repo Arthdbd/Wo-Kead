@@ -37,6 +37,6 @@
         "role": "user",
         "warnings": [],
         "is_banned": false,
-        "two_factor_enabled": false
+        "two_factor_enabled": true
     }
 }
