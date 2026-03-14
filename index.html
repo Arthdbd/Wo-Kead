@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmilaNEW · для MTA Province</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Стилизация скроллбара в бирюзовых тонах - усилено */
+        ::-webkit-scrollbar {
+            width: 14px;
+            height: 14px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #02201c;
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            border: 1px solid rgba(1, 231, 202, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(145deg, #01e7ca, #01b8a0);
+            border-radius: 12px;
+            border: 2px solid #02201c;
+            box-shadow: 0 0 15px rgba(1, 231, 202, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(145deg, #2effe0, #01e7ca);
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        /* Для Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #01e7ca #02201c;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 20% 30%, #03312b, #010a09 90%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            position: relative;
+            cursor: default;
+        }
+
+        /* Бирюзовые размытые фигуры - усилены */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 70vmax;
+            height: 70vmax;
+            top: 5vh;
+            left: -15vw;
+            background: rgba(1, 231, 202, 0.35);
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: 0;
+            animation: floatBlob 25s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 60vmin;
+            height: 60vmin;
+            bottom: 0;
+            right: 0;
+            background: rgba(1, 231, 202, 0.3);
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: 0;
+            animation: floatBlob 20s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            100% { transform: translate(-5%, -8%) scale(1.3); opacity: 0.9; }
+        }
+
+        /* Анимация появления элементов */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Главный контейнер - увеличен контраст */
+        .glass-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1400px;
+            background: rgba(1, 20, 18, 0.6);
+            backdrop-filter: blur(16px) saturate(200%);
+            -webkit-backdrop-filter: blur(16px) saturate(200%);
+            border-radius: 3rem;
+            border: 1px solid rgba(1, 231, 202, 0.3);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(1, 231, 202, 0.15) inset;
+            padding: 2.2rem 2.8rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Навбар */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #5effe8, #01e7ca);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(1, 231, 202, 0.6);
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.8rem 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #e0fff8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.4rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            cursor: pointer;
+            text-shadow: 0 0 8px rgba(1, 231, 202, 0.3);
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            border-bottom-color: #01e7ca;
+            text-shadow: 0 0 12px rgba(1, 231, 202, 0.8);
+        }
+
+        /* Кнопка Telegram */
+        .tg-lk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: rgba(1, 231, 202, 0.25);
+            border: 1px solid rgba(1, 231, 202, 0.5);
+            border-radius: 40px;
+            padding: 0.7rem 1.5rem;
+            color: white;
+            font-weight: 700;
+            backdrop-filter: blur(12px);
+            transition: 0.2s;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .tg-lk i {
+            font-size: 1.5rem;
+            color: #ffffff;
+            filter: drop-shadow(0 0 10px #01e7ca);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tg-lk span {
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+            line-height: 1;
+            color: #ffffff;
+        }
+
+        .tg-lk:hover {
+            background: rgba(1, 231, 202, 0.4);
+            border-color: #01e7ca;
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(1, 231, 202, 0.4);
+        }
+
+        /* Блок с описанием проекта */
+        .project-description-block {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(1, 231, 202, 0.25);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            cursor: default;
+            animation: fadeInUp 0.7s ease-out;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .project-description-block strong {
+            color: #01e7ca;
+            font-weight: 700;
+        }
+
+        /* Герой секция */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            flex: 2 1 600px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ffffff, #b5fff5, #01e7ca);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(1, 231, 202, 0.5);
+            cursor: default;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content h1 i {
+            font-size: 2rem;
+            margin-left: 0.3rem;
+            color: #01e7ca;
+            filter: drop-shadow(0 0 10px #01e7ca);
+        }
+
+        /* Кнопка скачивания */
+        .download-section {
+            margin: 1.5rem 0 2rem;
+            animation: fadeInUp 0.9s ease-out;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            background: linear-gradient(145deg, rgba(1, 231, 202, 0.3), rgba(1, 184, 160, 0.3));
+            border: 1px solid #01e7ca;
+            border-radius: 60px;
+            padding: 1.2rem 3rem;
+            backdrop-filter: blur(15px);
+            color: white;
+            font-weight: 800;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 20px 40px rgba(1, 231, 202, 0.4);
+            border-bottom: 2px solid #ffffff;
+            cursor: pointer;
+        }
+
+        .download-btn i {
+            font-size: 2.2rem;
+            color: #ffffff;
+            filter: drop-shadow(0 0 10px #01e7ca);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            background: rgba(1, 231, 202, 0.45);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(1, 231, 202, 0.5);
+        }
+
+        /* Сетка фич - заголовки рядом со значками */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: rgba(1, 30, 27, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(1, 231, 202, 0.25);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            cursor: default;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+            will-change: transform, background, border-color;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .feature-card:hover {
+            background: rgba(1, 80, 72, 0.8);
+            border-color: #01e7ca;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(1, 231, 202, 0.3);
+        }
+
+        /* Заголовок и иконка в одной строке */
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #ffffff, #01e7ca);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 8px rgba(1, 231, 202, 0.6));
+        }
+
+        .feature-icon i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .feature-card p {
+            color: #e0f0ee;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Блок информации о поддержке */
+        .info-block {
+            background: rgba(1, 25, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(1, 231, 202, 0.3);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+            animation: fadeInUp 1.1s ease-out;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .info-text {
+            color: #ffffff;
+            flex: 2 1 400px;
+        }
+
+        .info-text p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .info-text strong {
+            color: #01e7ca;
+            font-weight: 700;
+        }
+
+        .info-text i {
+            color: #01e7ca;
+            margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 5px #01e7ca);
+        }
+
+        .donate-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-width: 200px;
+        }
+
+        .donate-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: rgba(1, 231, 202, 0.25);
+            border: 1px solid rgba(1, 231, 202, 0.5);
+            border-radius: 40px;
+            padding: 1rem 1.8rem;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+            backdrop-filter: blur(8px);
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .donate-btn i {
+            color: #ffd966;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 5px #ffd966);
+        }
+
+        .donate-btn:hover {
+            background: rgba(1, 231, 202, 0.4);
+            border-color: #01e7ca;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(1, 231, 202, 0.4);
+        }
+
+        /* Ссылки в подвале */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            color: #ffffff;
+            border-top: 1px solid rgba(1, 231, 202, 0.3);
+            gap: 2rem;
+            flex-wrap: wrap;
+            cursor: default;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px dashed #01e7ca;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #01e7ca;
+            border-bottom-color: #ffffff;
+        }
+
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .glass-wrapper {
+                padding: 1.5rem;
+            }
+            .download-btn {
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+            }
+            .donate-buttons {
+                width: 100%;
+            }
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-wrapper">
+        <!-- Навбар: лого и меню в одном ряду -->
+        <nav class="navbar">
+            <span class="logo"><i class="fa-solid fa-bolt"></i> FarmilaNEW</span>
+            <div class="nav-links">
+                <a href="https://arthdbd.github.io/Wo-Kead/Farmila/rules.html">Правила</a>
+                <a href="https://arthdbd.github.io/Wo-Kead/Farmila/Образцы отчетов/гибдд-п.html">Образец отчета</a>
+                <a href="https://t.me/NewFarmila" target="_blank">Блог</a>
+                <a href="https://t.me/FarmilaID_bot?start=l" target="_blank" class="tg-lk">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>Личный FarmID&nbsp;</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Отдельный блок с описанием проекта -->
+        <div class="project-description-block">
+            <p>📍 <strong>FarmilaNEW — эволюция программы Farmila</strong>, разработанной Artem_Nikolskiy специально для игроков MTA Province #3. От простого консольного калькулятора до универсального инструмента</p>
+        </div>
+
+        <!-- Герой с заголовком и кнопкой -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>FarmilaNEW &nbsp;◈</h1>
+                
+                <!-- Кнопка скачивания -->
+                <div class="download-section">
+                    <a href="https://github.com/Arthdbd/Wo-Kead/releases/download/v2.0/Farmila_New.zip" class="download-btn">
+                        <i class="fas fa-download"></i> Скачать FarmilaNEW
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сетка возможностей -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Калькулятор активности</h3>
+                </div>
+                <p>Быстрый ввод задач (практика, мероприятия, вызовы, штрафы, ДТП) — автоматический расчёт баллов.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon"><i class="fas fa-images"></i></div>
+                    <h3>Хостинг скриншотов</h3>
+                </div>
+                <p>Загрузка изображений по категориям с созданием HTML-галерей для хранения доказательств.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Автоматизация отчетов</h3>
+                </div>
+                <p>Составление структурированных текстовых или HTML-отчетов одним кликом — готово для форума.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Стильный интерфейс</h3>
+                </div>
+                <p>Современный GUI с темной темой, авторизацией и персонализированными аватарами.</p>
+            </div>
+        </div>
+
+        <!-- Блок информации о поддержке -->
+        <div class="info-block">
+            <div class="info-text">
+                <p><i class="fas fa-coins"></i> <strong> FarmilaNEW полностью бесплатна</strong> — поддержка за счет добровольных пожертвований (лишь домен — $10).</p>
+                <p><i class="fas fa-star"></i> Программа упрощает работу с отчетами, экономит время и объединяет всё в одном приложении!</p>
+            </div>
+            <div class="donate-buttons">
+                <a href="https://www.donationalerts.com/r/kead" target="_blank" class="donate-btn"><i class="fa-solid fa-circle-dollar-to-slot"></i> Финансовый донат</a>
+            </div>
+        </div>
+
+        <!-- Ссылки в подвале -->
+        <div class="footer-links">
+            <span><a href="https://www.donationalerts.com/r/kead" target="_blank">Поддержать проект</a></span>
+            <span><a href="#">Файлы обновлений</a></span>
+            <span><a href="#">Сообщить о проблеме</a></span>
+        </div>
+    </div>
+</body>
+</html>
