@@ -8,14 +8,14 @@
     <link rel="icon" type="image/png" href="https://arthdbd.github.io/Wo-Kead/Ico-removebg-preview.png">
     <!-- Подключение Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome для иконок (на всякий случай) -->
+    <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'farmila-teal': '#01e7ca', // Основной бирюзовый
+                        'farmila-teal': '#01e7ca',
                         'farmila-teal-dark': '#01b8a0',
                         'farmila-teal-light': '#5effe8',
                         'farmila-bg': '#011410',
@@ -121,6 +121,18 @@
             }
         }
 
+        /* Анимация для верхнего текста */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         /* Стилизация контейнера отчета */
         .report-content {
             background: rgba(1, 25, 22, 0.8);
@@ -149,7 +161,15 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        /* Заголовки и текст */
+        /* Заголовки и текст с анимацией */
+        .header-title {
+            animation: fadeInScale 0.6s ease-out;
+        }
+        
+        .header-subtitle {
+            animation: fadeInScale 0.6s ease-out 0.2s both;
+        }
+
         h1 {
             text-shadow: 0 0 20px rgba(1, 231, 202, 0.3);
         }
@@ -167,12 +187,12 @@
 </head>
 <body>
 
-    <!-- Информационные строки перед рапортом -->
+    <!-- Информационные строки перед рапортом с анимацией -->
     <div class="text-center mb-8 max-w-5xl w-full z-10">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2" style="text-shadow: 0 0 30px rgba(1, 231, 202, 0.5);">
+        <h1 class="header-title text-4xl md:text-5xl font-extrabold text-white mb-2" style="text-shadow: 0 0 30px rgba(1, 231, 202, 0.5);">
             Ваш отчет готов
         </h1>
-        <p class="text-xl md:text-2xl font-medium text-gray-300">
+        <p class="header-subtitle text-xl md:text-2xl font-medium text-gray-300">
             Просто выделите и скопируйте текст в рамке ниже
         </p>
     </div>
