@@ -3,140 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Еженедельный Рапорт</title>
+    <title>Еженедельный Рапорт · FarmilaNEW</title>
     <!-- Иконка страницы -->
     <link rel="icon" type="image/png" href="https://arthdbd.github.io/Wo-Kead/Ico-removebg-preview.png">
     <!-- Подключение Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome для иконок (на всякий случай) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // Кастомный цвет для подписи Farmila
-                        'farmila-green': '#00af92', 
+                        'farmila-teal': '#01e7ca', // Основной бирюзовый
+                        'farmila-teal-dark': '#01b8a0',
+                        'farmila-teal-light': '#5effe8',
+                        'farmila-bg': '#011410',
+                        'farmila-card': '#02201c',
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Установим шрифт Inter по умолчанию для лучшей эстетики */
+        /* Подключаем шрифт Inter */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Стилизация скроллбара в бирюзовых тонах */
+        ::-webkit-scrollbar {
+            width: 14px;
+            height: 14px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #02201c;
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            border: 1px solid rgba(1, 231, 202, 0.4);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(145deg, #01e7ca, #01b8a0);
+            border-radius: 12px;
+            border: 2px solid #02201c;
+            box-shadow: 0 0 15px rgba(1, 231, 202, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(145deg, #2effe0, #01e7ca);
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        /* Для Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #01e7ca #02201c;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-image: url('https://arthdbd.github.io/Wo-Kead/Farmila/Gallery_back.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: radial-gradient(circle at 20% 30%, #03312b, #010a09 90%);
             min-height: 100vh;
             position: relative;
-            /* Центрируем содержимое body */
             display: flex;
-            flex-direction: column; /* Позволяет располагать элементы вертикально */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 10px; /* Отступ для мобильных устройств */
+            padding: 40px 10px;
         }
-        /* Слой затемнения */
+
+        /* Бирюзовые размытые фигуры для фона */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.65); /* Уровень затемнения (65% черный) */
-            z-index: -1;
+            width: 70vmax;
+            height: 70vmax;
+            top: 5vh;
+            left: -15vw;
+            background: rgba(1, 231, 202, 0.2);
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: 0;
+            animation: floatBlob 25s infinite alternate ease-in-out;
         }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 60vmin;
+            height: 60vmin;
+            bottom: 0;
+            right: 0;
+            background: rgba(1, 231, 202, 0.15);
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: 0;
+            animation: floatBlob 20s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            100% { transform: translate(-5%, -8%) scale(1.3); opacity: 0.6; }
+        }
+
+        /* Анимация появления */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Стилизация контейнера отчета */
+        .report-content {
+            background: rgba(1, 25, 22, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(1, 231, 202, 0.3);
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 0.8s ease-out;
+            width: 100%;
+            max-width: 1200px;
+        }
+
         .report-content p {
-            /* Убедимся, что все параграфы внутри блока имеют отступ 0 и маргин 0, как в оригинале */
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
+
         /* Стиль для текста "powered by" */
         .farmila-text {
-            /* Используем Calibri, если доступен, иначе Inter */
-            font-family: 'Calibri', 'Inter', sans-serif;
-            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Заголовки и текст */
+        h1 {
+            text-shadow: 0 0 20px rgba(1, 231, 202, 0.3);
+        }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 640px) {
+            .report-content {
+                padding: 1.5rem;
+            }
+            .report-content p {
+                font-size: 13px !important;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Информационные строки перед рапортом (УВЕЛИЧЕНЫ) -->
-    <div class="text-center mb-12 max-w-5xl w-full">
-        <!-- Увеличен размер шрифта с text-2xl до text-3xl -->
-        <h1 class="text-3xl font-extrabold text-white mb-1">Ваш отчет готов</h1>
-        <!-- Увеличен размер шрифта с text-base до text-lg -->
-        <p class="text-lg font-medium text-gray-300">Просто выделите и скопируйте текст в рамке ниже</p>
-    </div>
-
-    <!--
-        Контент рапорта.
-    -->
-    <div class="report-content max-w-5xl w-full rounded-xl" style="background-color:#17191f; padding: 10px;">
-        
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
-            <span><strong>Начальнику ГИБДД города Приволжска<br>
-            Генерал-майору инспекции</strong></span>
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
-            <span><strong>Миллеру Мистериусу Сергеевичу<br>
-            от&nbsp;<span style="color:#2980b9;">званиерд</span><span style="color:#ff6600;">&nbsp;</span>инспекции<br>
-            от&nbsp;<span style="color:#2980b9;">ФИОрд</span></strong></span>
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
-            &nbsp;
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:center;">
-            <span><strong>Рапорт о еженедельной работе сотрудника младшего состава</strong></span>
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
-            &nbsp;
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
-            <span><strong>Я,&nbsp;<span style="color:#2980b9;">ФИОип</span>, служащий в звании&nbsp;<span style="color:#2980b9;">званиеип</span>&nbsp;инспекции на должности должностьип. Составляю рапорт о проделанной работе в течение недели за период&nbsp;<span style="color:#2980b9;">xx.xx.xxxx&nbsp;-&nbsp;псд.</span><span>&nbsp;</span>Подтверждаю, что ознакомлен с правилами о предоставлении неверной информации.</strong></span><br>
-            &nbsp;
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
-            <span><strong>К рапорту прилагаю доказательства своей работы:</strong></span><br>
-            &nbsp;
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
-            <span><strong>write the<span style="color:#2980b9;">&nbsp;result here</span></strong></span>
-        </p>
-        
-        </p>
-
-        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
-            <span><strong>Дата:&nbsp;<span style="color:#2980b9;">дсд</span><br>
-            Подпись:&nbsp;<span style="color:#2980b9;">ппн</span></strong></span>
+    <!-- Информационные строки перед рапортом -->
+    <div class="text-center mb-8 max-w-5xl w-full z-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2" style="text-shadow: 0 0 30px rgba(1, 231, 202, 0.5);">
+            Ваш отчет готов
+        </h1>
+        <p class="text-xl md:text-2xl font-medium text-gray-300">
+            Просто выделите и скопируйте текст в рамке ниже
         </p>
     </div>
-    <!-- Конец контента рапорта -->
 
-    <!-- Нижняя подпись (ЦВЕТ ИЗМЕНЕН, ОТСТУП УМЕНЬШЕН) -->
-    <!-- Изменен mt-12 на mt-6 -->
-    <div class="mt-4">
-        <!-- Используем заданный кастомный цвет farmila-green (#00af92) -->
-        <p class="farmila-text text-farmila-green font-bold">
-            powered by Farmila
+    <!-- Контент рапорта -->
+    <div class="report-content z-10">
+        <p style="color:#ffffff; font-size:15px; text-align:right; margin-bottom:1rem;">
+            <span class="font-bold">Начальнику ГИБДД города Приволжска<br>
+            Генерал-майору инспекции</span>
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; text-align:right; margin-bottom:1rem;">
+            <span class="font-bold">Миллеру Мистериусу Сергеевичу<br>
+            от&nbsp;<span style="color:#01e7ca;">званиерд</span>&nbsp;инспекции<br>
+            от&nbsp;<span style="color:#01e7ca;">ФИОрд</span></span>
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; text-align:right; margin-bottom:1rem;">
+            &nbsp;
+        </p>
+
+        <p style="color:#ffffff; font-size:16px; text-align:center; margin-bottom:1.5rem;">
+            <span class="font-bold text-lg" style="color:#01e7ca;">Рапорт о еженедельной работе сотрудника младшего состава</span>
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; margin-bottom:1rem;">
+            &nbsp;
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; margin-bottom:1.5rem; line-height:1.8;">
+            <span class="font-bold">Я,&nbsp;<span style="color:#01e7ca;">ФИОип</span>, служащий в звании&nbsp;<span style="color:#01e7ca;">званиеип</span>&nbsp;инспекции на должности должностьип. Составляю рапорт о проделанной работе в течение недели за период&nbsp;<span style="color:#01e7ca;">xx.xx.xxxx&nbsp;-&nbsp;псд.</span>&nbsp;Подтверждаю, что ознакомлен с правилами о предоставлении неверной информации.</span>
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; margin-bottom:1rem;">
+            <span class="font-bold">К рапорту прилагаю доказательства своей работы:</span>
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; margin-bottom:2rem; background: rgba(1, 231, 202, 0.1); padding: 1rem; border-radius: 1rem; border-left: 4px solid #01e7ca;">
+            <span class="font-bold" style="color:#01e7ca;">write the result here</span>
+        </p>
+
+        <p style="color:#ffffff; font-size:15px; text-align:right; margin-top:2rem;">
+            <span class="font-bold">Дата:&nbsp;<span style="color:#01e7ca;">дсд</span><br>
+            Подпись:&nbsp;<span style="color:#01e7ca;">ппн</span></span>
+        </p>
+    </div>
+
+    <!-- Нижняя подпись -->
+    <div class="mt-6 z-10">
+        <p class="farmila-text text-farmila-teal">
+            ⚡ powered by FarmilaNEW
         </p>
     </div>
 
 </body>
 </html>
-
-
-
-
