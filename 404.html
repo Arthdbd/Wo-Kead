@@ -281,73 +281,15 @@
             }
         });
 
-        // Проверяем, первый ли это заход или автообновление
-        const isFirstVisit = !sessionStorage.getItem('gameStarted');
-
-        // Snake game
-        const canvas = document.getElementById('snakeCanvas');
-        const ctx = canvas.getContext('2d');
-        const resetButton = document.getElementById('resetButton');
-        const startButton = document.getElementById('startButton');
-        const gridSize = 10;
-        const tileCount = canvas.width / gridSize;
-
-        // Initialize or restore game state
-        let snake = [{ x: 10, y: 10 }];
-        let food = { x: 15, y: 15 };
-        let dx = 0;
-        let dy = 0;
-        let score = 0;
-        let isCollided = false;
-        let gameSpeed = 100;
-        let gameInterval = null;
-        let lastDx = 0;
-        let lastDy = 0;
-
-        // Если это не первый визит, загружаем сохраненное состояние и запускаем игру сразу
-        if (!isFirstVisit) {
-            snake = JSON.parse(sessionStorage.getItem('snake')) || [{ x: 10, y: 10 }];
-            food = JSON.parse(sessionStorage.getItem('food')) || { x: 15, y: 15 };
-            dx = parseInt(sessionStorage.getItem('dx')) || 0;
-            dy = parseInt(sessionStorage.getItem('dy')) || 0;
-            score = parseInt(sessionStorage.getItem('snakeScore')) || 0;
-            isCollided = JSON.parse(sessionStorage.getItem('isCollided')) || false;
-            lastDx = dx;
-            lastDy = dy;
-            
-            startButton.style.display = 'none';
-            
-            if (isCollided) {
-                resetButton.style.display = 'block';
-            }
-            
-            // Запускаем игру сразу
-            if (gameInterval) clearInterval(gameInterval);
-            gameInterval = setInterval(drawGame, gameSpeed);
-        } else {
-            // При первом заходе показываем кнопку Старт и сохраняем начальное состояние
-            sessionStorage.setItem('snake', JSON.stringify(snake));
-            sessionStorage.setItem('food', JSON.stringify(food));
-            sessionStorage.setItem('dx', dx);
-            sessionStorage.setItem('dy', dy);
-            sessionStorage.setItem('snakeScore', score);
-            sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
-            
-            // Рисуем начальное состояние
-            drawInitialState();
-        }
-
-        document.getElementById('score').textContent = score;
-
-        function drawInitialState() {
-            // Отрисовка начального состояния без запуска игры
+        // Функция для рендеринга игрового состояния (без запуска интервала)
+        function renderGameState() {
             ctx.fillStyle = '#02201c';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             // Рисуем змейку
             snake.forEach((segment, index) => {
                 const lightness = 40 + (index / snake.length) * 30;
-                ctx.fillStyle = `hsl(170, 80%, ${lightness}%)`; // Бирюзовые оттенки
+                ctx.fillStyle = `hsl(170, 80%, ${lightness}%)`;
                 ctx.beginPath();
                 ctx.arc(
                     segment.x * gridSize + gridSize / 2,
@@ -373,6 +315,74 @@
             );
             ctx.fill();
             ctx.shadowBlur = 0;
+        }
+
+        // Snake game
+        const canvas = document.getElementById('snakeCanvas');
+        const ctx = canvas.getContext('2d');
+        const resetButton = document.getElementById('resetButton');
+        const startButton = document.getElementById('startButton');
+        const gridSize = 10;
+        const tileCount = canvas.width / gridSize;
+
+        // Initialize or restore game state
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: 15, y: 15 };
+        let dx = 0;
+        let dy = 0;
+        let score = 0;
+        let isCollided = false;
+        let gameSpeed = 100;
+        let gameInterval = null;
+        let lastDx = 0;
+        let lastDy = 0;
+
+        // Сначала загружаем сохраненное состояние (если есть)
+        const savedSnake = sessionStorage.getItem('snake');
+        const savedFood = sessionStorage.getItem('food');
+        const savedDx = sessionStorage.getItem('dx');
+        const savedDy = sessionStorage.getItem('dy');
+        const savedScore = sessionStorage.getItem('snakeScore');
+        const savedIsCollided = sessionStorage.getItem('isCollided');
+        
+        if (savedSnake) snake = JSON.parse(savedSnake);
+        if (savedFood) food = JSON.parse(savedFood);
+        if (savedDx) dx = parseInt(savedDx);
+        if (savedDy) dy = parseInt(savedDy);
+        if (savedScore) score = parseInt(savedScore);
+        if (savedIsCollided) isCollided = JSON.parse(savedIsCollided);
+        
+        lastDx = dx;
+        lastDy = dy;
+
+        // Проверяем, первый ли это заход или автообновление
+        const isFirstVisit = !sessionStorage.getItem('gameStarted');
+
+        // Сразу рендерим состояние (без мигания)
+        renderGameState();
+        
+        // Обновляем отображение счета
+        document.getElementById('score').textContent = score;
+
+        // Настраиваем кнопки в зависимости от состояния
+        if (!isFirstVisit) {
+            startButton.style.display = 'none';
+            
+            if (isCollided) {
+                resetButton.style.display = 'block';
+            }
+            
+            // Запускаем игру сразу
+            if (gameInterval) clearInterval(gameInterval);
+            gameInterval = setInterval(drawGame, gameSpeed);
+        } else {
+            // При первом заходе показываем кнопку Старт и сохраняем начальное состояние
+            sessionStorage.setItem('snake', JSON.stringify(snake));
+            sessionStorage.setItem('food', JSON.stringify(food));
+            sessionStorage.setItem('dx', dx);
+            sessionStorage.setItem('dy', dy);
+            sessionStorage.setItem('snakeScore', score);
+            sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
         }
 
         function startGame() {
@@ -416,46 +426,15 @@
             // Hide reset button
             resetButton.style.display = 'none';
             
+            // Мгновенно отрисовываем новое состояние
+            renderGameState();
+            
             // Перезапускаем игру
             if (gameInterval) clearInterval(gameInterval);
             gameInterval = setInterval(drawGame, gameSpeed);
         }
 
         function drawGame() {
-            // Clear canvas
-            ctx.fillStyle = '#02201c';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Draw snake
-            snake.forEach((segment, index) => {
-                const lightness = 40 + (index / snake.length) * 30;
-                ctx.fillStyle = `hsl(170, 80%, ${lightness}%)`;
-                ctx.beginPath();
-                ctx.arc(
-                    segment.x * gridSize + gridSize / 2,
-                    segment.y * gridSize + gridSize / 2,
-                    gridSize / 2 - 1,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-            });
-
-            // Draw food
-            ctx.fillStyle = '#01e7ca';
-            ctx.shadowColor = '#01e7ca';
-            ctx.shadowBlur = 10;
-            ctx.beginPath();
-            ctx.arc(
-                food.x * gridSize + gridSize / 2,
-                food.y * gridSize + gridSize / 2,
-                gridSize / 2 - 1,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill();
-            ctx.shadowBlur = 0;
-
             // Stop movement if collided
             if (isCollided) {
                 resetButton.style.display = 'block';
@@ -477,6 +456,7 @@
                     isCollided = true;
                     sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
                     resetButton.style.display = 'block';
+                    renderGameState(); // Показываем состояние столкновения
                     return;
                 }
             }
@@ -499,6 +479,9 @@
             sessionStorage.setItem('food', JSON.stringify(food));
             sessionStorage.setItem('dx', dx);
             sessionStorage.setItem('dy', dy);
+            
+            // Render the new state
+            renderGameState();
         }
 
         function generateFood() {
