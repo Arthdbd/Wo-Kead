@@ -3,562 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 · FarmilaNEW</title>
-    <link rel="icon" href="https://arthdbd.github.io/Wo-Kead/Ico-removebg-preview.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Еженедельный Рапорт</title>
+    <!-- Иконка страницы -->
+    <link rel="icon" type="image/png" href="https://arthdbd.github.io/Wo-Kead/Ico-removebg-preview.png">
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Кастомный цвет для подписи Farmila
+                        'farmila-green': '#00af92', 
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        /* Стилизация скроллбара в фиолетовых тонах */
-        ::-webkit-scrollbar {
-            width: 14px;
-            height: 14px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(18, 10, 28, 0.6);
-            backdrop-filter: blur(5px);
-            border-radius: 12px;
-            border: 1px solid rgba(200, 160, 255, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(145deg, #9f6eff, #7b3fcc);
-            border-radius: 12px;
-            border: 2px solid rgba(30, 15, 50, 0.5);
-            box-shadow: 0 0 15px rgba(156, 79, 255, 0.6);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(145deg, #b58aff, #8f5ae0);
-        }
-
-        ::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-
-        /* Для Firefox */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #9f6eff rgba(18, 10, 28, 0.6);
-        }
-
+        /* Установим шрифт Inter по умолчанию для лучшей эстетики */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://arthdbd.github.io/Wo-Kead/Farmila/Gallery_back.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
-            background: radial-gradient(circle at 20% 30%, #2d1b3f, #0c0712 90%);
+            position: relative;
+            /* Центрируем содержимое body */
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Позволяет располагать элементы вертикально */
             justify-content: center;
             align-items: center;
-            padding: 1.5rem;
-            position: relative;
-            cursor: default;
+            padding: 40px 10px; /* Отступ для мобильных устройств */
         }
-
-        /* Фиолетовые размытые фигуры */
+        /* Слой затемнения */
         body::before {
             content: '';
             position: fixed;
-            width: 70vmax;
-            height: 70vmax;
-            top: 5vh;
-            left: -15vw;
-            background: rgba(156, 79, 255, 0.3);
-            border-radius: 50%;
-            filter: blur(140px);
-            z-index: 0;
-            animation: floatBlob 25s infinite alternate ease-in-out;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            width: 60vmin;
-            height: 60vmin;
-            bottom: 0;
+            top: 0;
+            left: 0;
             right: 0;
-            background: rgba(210, 130, 255, 0.25);
-            border-radius: 50%;
-            filter: blur(150px);
-            z-index: 0;
-            animation: floatBlob 20s infinite alternate-reverse ease-in-out;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.65); /* Уровень затемнения (65% черный) */
+            z-index: -1;
         }
-
-        @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-            100% { transform: translate(-5%, -8%) scale(1.3); opacity: 0.7; }
+        /* Стилизация контейнера отчета */
+        .report-content p {
+            /* Убедимся, что все параграфы внутри блока имеют отступ 0 и маргин 0, как в оригинале */
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
         }
-
-        /* Анимация появления элементов */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Анимация для титров */
-        @keyframes revealText {
-            0% { width: 0; }
-            80% { width: 100%; }
-            100% { width: 0; }
-        }
-
-        .game-container {
-            text-align: center;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 10;
-            background: rgba(18, 10, 28, 0.4);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border-radius: 2rem;
-            border: 1px solid rgba(200, 160, 255, 0.15);
-            padding: 2rem;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
-            width: fit-content;
-        }
-
-        .game-instructions {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 18px;
-            text-shadow: 0 0 10px rgba(170, 100, 255, 0.3);
-            margin-bottom: 15px;
-        }
-
-        canvas {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(8px);
-            border: 2px solid rgba(200, 150, 255, 0.3);
-            border-radius: 1rem;
-            margin-bottom: 10px;
-            box-shadow: 0 0 30px rgba(156, 79, 255, 0.2);
-        }
-
-        .message {
-            color: white;
-            text-align: center;
-            font-size: 28px;
-            max-width: 1000px;
-            width: fit-content;
-            padding: 2rem 3rem;
-            margin-top: 2rem;
-            background: rgba(18, 10, 28, 0.4);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border-radius: 2rem;
-            border: 1px solid rgba(200, 160, 255, 0.15);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
-            line-height: 1.6;
-            z-index: 10;
-        }
-
-        .oops {
-            font-size: 56px;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #f0e6ff, #d9b0ff, #b57cff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(170, 100, 255, 0.3);
-        }
-
-        .main-text {
-            display: block;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.3rem;
-        }
-
-        .credit-container {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.6);
-            display: inline-block;
-            width: auto;
-            margin-top: 10px;
-        }
-
-        .credit {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0;
-            animation: revealText 3s ease-in-out infinite;
-            color: #d9b0ff;
-            border-right: 2px solid #b57cff;
-        }
-
-        .reset-button, .start-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(145deg, rgba(150, 80, 255, 0.3), rgba(110, 40, 220, 0.2));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(210, 150, 255, 0.4);
-            color: white;
-            font-weight: 600;
-            padding: 12px 24px;
-            font-size: 18px;
-            border-radius: 40px;
-            cursor: pointer;
-            z-index: 20;
-            white-space: nowrap;
-            box-shadow: 0 10px 30px rgba(100, 50, 200, 0.3);
-            transition: 0.3s;
-            display: none;
-        }
-
-        .reset-button:hover, .start-button:hover {
-            background: rgba(170, 100, 255, 0.4);
-            transform: translate(-50%, -50%) scale(1.05);
-            border-color: rgba(255, 200, 255, 0.5);
-            box-shadow: 0 15px 40px rgba(150, 80, 255, 0.4);
-        }
-
-        .start-button {
-            display: block;
-        }
-
-        @media (max-width: 750px) {
-            body {
-                padding: 1rem;
-            }
-            .oops {
-                font-size: 42px;
-            }
-            .main-text {
-                font-size: 1.1rem;
-            }
-            .message {
-                padding: 1.5rem;
-                font-size: 24px;
-            }
-            .game-container {
-                padding: 1.5rem;
-            }
+        /* Стиль для текста "powered by" */
+        .farmila-text {
+            /* Используем Calibri, если доступен, иначе Inter */
+            font-family: 'Calibri', 'Inter', sans-serif;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <div class="game-instructions">Счёт: <span id="score">0</span></div>
-        <canvas id="snakeCanvas" width="200" height="200"></canvas>
-        <button id="startButton" class="start-button" onclick="startGame()">Старт</button>
-        <button id="resetButton" class="reset-button" onclick="resetGame()">Заново</button>
-    </div>
-    <div class="message">
-        <span class="oops"><i class="fas fa-exclamation-triangle" style="color: #ffd966; margin-right: 10px;"></i>404</span>
-        <span class="main-text">Как бы ни старались, ничего не нашли...<br>Если эта ссылка на фото, возможно, они ещё не прогрузились.<br>Можете остаться и подождать — мы стараемся &lt;3</span>
-        <div class="credit-container">
-            <span class="credit">Farmila by Nikolskiy</span>
-        </div>
+
+    <!-- Информационные строки перед рапортом (УВЕЛИЧЕНЫ) -->
+    <div class="text-center mb-12 max-w-5xl w-full">
+        <!-- Увеличен размер шрифта с text-2xl до text-3xl -->
+        <h1 class="text-3xl font-extrabold text-white mb-1">Ваш отчет готов</h1>
+        <!-- Увеличен размер шрифта с text-base до text-lg -->
+        <p class="text-lg font-medium text-gray-300">Просто выделите и скопируйте текст в рамке ниже</p>
     </div>
 
-    <script>
-        let cycleCount = 0;
-        const credit = document.querySelector('.credit');
-        credit.addEventListener('animationiteration', () => {
-            cycleCount++;
-            if (cycleCount >= 2) {
-                location.reload();
-            }
-        });
+    <!--
+        Контент рапорта.
+    -->
+    <div class="report-content max-w-5xl w-full rounded-xl" style="background-color:#17191f; padding: 10px;">
+        
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            <span><strong>Начальнику ГИБДД города Приволжска<br>
+            Генерал-майору инспекции</strong></span>
+        </p>
 
-        // Проверяем, первый ли это заход или автообновление
-        const isFirstVisit = !sessionStorage.getItem('gameStarted');
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            <span><strong>Миллеру Мистериусу Сергеевичу<br>
+            от&nbsp;<span style="color:#2980b9;">званиерд</span><span style="color:#ff6600;">&nbsp;</span>инспекции<br>
+            от&nbsp;<span style="color:#2980b9;">ФИОрд</span></strong></span>
+        </p>
 
-        // Snake game
-        const canvas = document.getElementById('snakeCanvas');
-        const ctx = canvas.getContext('2d');
-        const resetButton = document.getElementById('resetButton');
-        const startButton = document.getElementById('startButton');
-        const gridSize = 10;
-        const tileCount = canvas.width / gridSize;
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            &nbsp;
+        </p>
 
-        // Initialize or restore game state
-        let snake = [{ x: 10, y: 10 }];
-        let food = { x: 15, y: 15 };
-        let dx = 0;
-        let dy = 0;
-        let score = 0;
-        let isCollided = false;
-        let gameSpeed = 100;
-        let gameInterval = null;
-        let lastDx = 0;
-        let lastDy = 0;
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:center;">
+            <span><strong>Рапорт о еженедельной работе сотрудника младшего состава</strong></span>
+        </p>
 
-        // Если это не первый визит, загружаем сохраненное состояние и запускаем игру сразу
-        if (!isFirstVisit) {
-            snake = JSON.parse(sessionStorage.getItem('snake')) || [{ x: 10, y: 10 }];
-            food = JSON.parse(sessionStorage.getItem('food')) || { x: 15, y: 15 };
-            dx = parseInt(sessionStorage.getItem('dx')) || 0;
-            dy = parseInt(sessionStorage.getItem('dy')) || 0;
-            score = parseInt(sessionStorage.getItem('snakeScore')) || 0;
-            isCollided = JSON.parse(sessionStorage.getItem('isCollided')) || false;
-            lastDx = dx;
-            lastDy = dy;
-            
-            startButton.style.display = 'none';
-            
-            if (isCollided) {
-                resetButton.style.display = 'block';
-            }
-            
-            // Запускаем игру сразу
-            if (gameInterval) clearInterval(gameInterval);
-            gameInterval = setInterval(drawGame, gameSpeed);
-        } else {
-            // При первом заходе показываем кнопку Старт и сохраняем начальное состояние
-            sessionStorage.setItem('snake', JSON.stringify(snake));
-            sessionStorage.setItem('food', JSON.stringify(food));
-            sessionStorage.setItem('dx', dx);
-            sessionStorage.setItem('dy', dy);
-            sessionStorage.setItem('snakeScore', score);
-            sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
-            
-            // Рисуем начальное состояние
-            drawInitialState();
-        }
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            &nbsp;
+        </p>
 
-        document.getElementById('score').textContent = score;
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>Я,&nbsp;<span style="color:#2980b9;">ФИОип</span>, служащий в звании&nbsp;<span style="color:#2980b9;">званиеип</span>&nbsp;инспекции на должности должностьип. Составляю рапорт о проделанной работе в течение недели за период&nbsp;<span style="color:#2980b9;">xx.xx.xxxx&nbsp;-&nbsp;псд.</span><span>&nbsp;</span>Подтверждаю, что ознакомлен с правилами о предоставлении неверной информации.</strong></span><br>
+            &nbsp;
+        </p>
 
-        function drawInitialState() {
-            // Отрисовка начального состояния без запуска игры
-            ctx.fillStyle = '#1a1025';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>К рапорту прилагаю доказательства своей работы:</strong></span><br>
+            &nbsp;
+        </p>
 
-            // Рисуем змейку
-            snake.forEach((segment, index) => {
-                const lightness = 30 + (index / snake.length) * 20;
-                ctx.fillStyle = `hsl(270, 60%, ${lightness}%)`;
-                ctx.beginPath();
-                ctx.arc(
-                    segment.x * gridSize + gridSize / 2,
-                    segment.y * gridSize + gridSize / 2,
-                    gridSize / 2 - 1,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-            });
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;">
+            <span><strong>write the<span style="color:#2980b9;">&nbsp;result here</span></strong></span>
+        </p>
+        
+        </p>
 
-            // Рисуем еду
-            ctx.fillStyle = '#9f6eff';
-            ctx.beginPath();
-            ctx.arc(
-                food.x * gridSize + gridSize / 2,
-                food.y * gridSize + gridSize / 2,
-                gridSize / 2 - 1,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill();
-        }
+        <p style="background-color:#17191f;color:#ffffff;font-size:14px;text-align:right;">
+            <span><strong>Дата:&nbsp;<span style="color:#2980b9;">дсд</span><br>
+            Подпись:&nbsp;<span style="color:#2980b9;">ппн</span></strong></span>
+        </p>
+    </div>
+    <!-- Конец контента рапорта -->
 
-        function startGame() {
-            startButton.style.display = 'none';
-            sessionStorage.setItem('gameStarted', 'true');
-            
-            // Запускаем игру
-            if (gameInterval) clearInterval(gameInterval);
-            gameInterval = setInterval(drawGame, gameSpeed);
-        }
+    <!-- Нижняя подпись (ЦВЕТ ИЗМЕНЕН, ОТСТУП УМЕНЬШЕН) -->
+    <!-- Изменен mt-12 на mt-6 -->
+    <div class="mt-4">
+        <!-- Используем заданный кастомный цвет farmila-green (#00af92) -->
+        <p class="farmila-text text-farmila-green font-bold">
+            powered by Farmila
+        </p>
+    </div>
 
-        function resetGame() {
-            // Reset all game state
-            snake = [{ x: 10, y: 10 }];
-            food = { x: 15, y: 15 };
-            dx = 0;
-            dy = 0;
-            score = 0;
-            isCollided = false;
-            lastDx = 0;
-            lastDy = 0;
-
-            // Clear sessionStorage but keep gameStarted flag
-            const gameStarted = sessionStorage.getItem('gameStarted');
-            sessionStorage.clear();
-            if (gameStarted) {
-                sessionStorage.setItem('gameStarted', 'true');
-            }
-
-            // Update score display
-            document.getElementById('score').textContent = score;
-
-            // Save initial state
-            sessionStorage.setItem('snake', JSON.stringify(snake));
-            sessionStorage.setItem('food', JSON.stringify(food));
-            sessionStorage.setItem('dx', dx);
-            sessionStorage.setItem('dy', dy);
-            sessionStorage.setItem('snakeScore', score);
-            sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
-
-            // Hide reset button
-            resetButton.style.display = 'none';
-            
-            // Перезапускаем игру
-            if (gameInterval) clearInterval(gameInterval);
-            gameInterval = setInterval(drawGame, gameSpeed);
-        }
-
-        function drawGame() {
-            // Clear canvas
-            ctx.fillStyle = '#1a1025';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Draw snake
-            snake.forEach((segment, index) => {
-                const lightness = 30 + (index / snake.length) * 20;
-                ctx.fillStyle = `hsl(270, 60%, ${lightness}%)`;
-                ctx.beginPath();
-                ctx.arc(
-                    segment.x * gridSize + gridSize / 2,
-                    segment.y * gridSize + gridSize / 2,
-                    gridSize / 2 - 1,
-                    0,
-                    Math.PI * 2
-                );
-                ctx.fill();
-            });
-
-            // Draw food
-            ctx.fillStyle = '#9f6eff';
-            ctx.beginPath();
-            ctx.arc(
-                food.x * gridSize + gridSize / 2,
-                food.y * gridSize + gridSize / 2,
-                gridSize / 2 - 1,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill();
-
-            // Stop movement if collided
-            if (isCollided) {
-                resetButton.style.display = 'block';
-                return;
-            }
-
-            // Move snake
-            let head = { x: snake[0].x + dx, y: snake[0].y + dy };
-
-            // Handle wall wrapping
-            if (head.x < 0) head.x = tileCount - 1;
-            if (head.x >= tileCount) head.x = 0;
-            if (head.y < 0) head.y = tileCount - 1;
-            if (head.y >= tileCount) head.y = 0;
-
-            // Check collision with self
-            for (let i = 1; i < snake.length; i++) {
-                if (head.x === snake[i].x && head.y === snake[i].y) {
-                    isCollided = true;
-                    sessionStorage.setItem('isCollided', JSON.stringify(isCollided));
-                    resetButton.style.display = 'block';
-                    return;
-                }
-            }
-
-            // Move snake
-            snake.unshift(head);
-
-            // Check if snake ate food
-            if (head.x === food.x && head.y === food.y) {
-                score += 10;
-                sessionStorage.setItem('snakeScore', score);
-                document.getElementById('score').textContent = score;
-                generateFood();
-            } else {
-                snake.pop();
-            }
-
-            // Save game state
-            sessionStorage.setItem('snake', JSON.stringify(snake));
-            sessionStorage.setItem('food', JSON.stringify(food));
-            sessionStorage.setItem('dx', dx);
-            sessionStorage.setItem('dy', dy);
-        }
-
-        function generateFood() {
-            food.x = Math.floor(Math.random() * tileCount);
-            food.y = Math.floor(Math.random() * tileCount);
-            // Ensure food doesn't spawn on snake
-            snake.forEach(segment => {
-                if (food.x === segment.x && food.y === segment.y) {
-                    generateFood();
-                }
-            });
-            sessionStorage.setItem('food', JSON.stringify(food));
-        }
-
-        // Управление с клавиатуры
-        document.addEventListener('keydown', e => {
-            if (isCollided) return;
-            
-            // Игра не запущена, если кнопка Старт видна
-            if (startButton.style.display !== 'none') return;
-            
-            let newDx = dx;
-            let newDy = dy;
-            switch (e.key.toLowerCase()) {
-                case 'w':
-                case 'ц':
-                case 'arrowup':
-                    if (lastDy !== 1) {
-                        newDx = 0;
-                        newDy = -1;
-                    }
-                    break;
-                case 's':
-                case 'ы':
-                case 'arrowdown':
-                    if (lastDy !== -1) {
-                        newDx = 0;
-                        newDy = 1;
-                    }
-                    break;
-                case 'a':
-                case 'ф':
-                case 'arrowleft':
-                    if (lastDx !== 1) {
-                        newDx = -1;
-                        newDy = 0;
-                    }
-                    break;
-                case 'd':
-                case 'в':
-                case 'arrowright':
-                    if (lastDx !== -1) {
-                        newDx = 1;
-                        newDy = 0;
-                    }
-                    break;
-            }
-            dx = newDx;
-            dy = newDy;
-            lastDx = dx;
-            lastDy = dy;
-            sessionStorage.setItem('dx', dx);
-            sessionStorage.setItem('dy', dy);
-        });
-
-        // Очищаем интервал при закрытии страницы
-        window.addEventListener('beforeunload', () => {
-            if (gameInterval) {
-                clearInterval(gameInterval);
-            }
-        });
-    </script>
 </body>
 </html>
