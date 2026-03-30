@@ -47,13 +47,10 @@
                 "timestamp": "2026-03-14T19:06:35.277307+00:00"
             }
         ],
-        "is_banned": true,
+        "is_banned": false,
         "two_factor_enabled": true,
         "subscription_updated_by": "Artem_Nikolskiy",
-        "subscription_updated_at": "2026-03-14T19:07:55.931116+00:00",
-        "ban_reason": "5.1. Каждый пользователь несёт личную ответственность за контент, загружаемый на хостинг.",
-        "banned_by": "Artem_Nikolskiy",
-        "banned_at": "2026-03-14T19:09:57.664953+00:00"
+        "subscription_updated_at": "2026-03-14T19:07:55.931116+00:00"
     },
     "Terma_Ki": {
         "position": "Ст.лейтенант (6)",
