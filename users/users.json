@@ -53,5 +53,20 @@
         "subscription_updated_by": "Artem_Nikolskiy",
         "subscription_updated_at": "wait",
         "two_factor_status": ""
+    },
+    "Kead_Niko": {
+        "position": "\u041b\u0435\u0439\u0442\u0435\u043d\u0430\u043d\u0442 (5)",
+        "department": "\u041e\u0421\u041f",
+        "city": "\u041c\u0438\u0440\u043d\u044b\u0439",
+        "email": "amenala789@gmail.com",
+        "password": "d70ec78a17e3e5c91e45d862343339ff856be2ce2d8600f540d6982dfdc6039a",
+        "user_login": "Loli",
+        "last_name": "\u041a\u0435\u043d\u0442\u0438\u043a\u043e\u0432",
+        "first_name": "\u041a\u0438\u0434",
+        "patronymic": "\u041b\u043e\u043b\u0438\u043f\u043e\u043f\u043e\u0432\u0438\u0447",
+        "sign": "\u041e\u0425\u0420",
+        "two_factor_enabled": false,
+        "two_factor_status": "",
+        "user_avatar": "https://raw.githubusercontent.com/Arthdbd/Wo-Kead/main/users/Kead_Niko.jpg"
     }
 }
